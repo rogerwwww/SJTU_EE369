@@ -1,8 +1,6 @@
-# SJTU_EE369
+# README
 
-This repository contains project code for Shanghai Jiao Tong University EE369 (Machine Learning). kNN, Naive Bayes, Support Vector Machine and BP Network on MNIST and CIFAR-10.
-
-## Environment
+## 运行环境
 
 Windows10 64bit
 
@@ -18,13 +16,11 @@ Python3.6.3
 | scipy        | 1.0.0   |
 | tqdm         | 4.19.4  |
 
-## An Easy Approach
+## 简便方法
 
-Run `autorun.bat`, it will run Naive Bayes and SVM on MNIST and CIFAR-10 dataset. kNN will take a very long time, so it was not included.
+运行autorun.bat，分别在MNIST和CIFAR-10数据集上运行Naive Bayes、SVM算法（kNN运行时间过长，没有放入）。
 
-Run `autorun-bp.bat`, it will run BP on MNIST dataset. Taking the number of nodes of hidden layer as 50, 100 and 250 and setting the iteration as 100, the result will be stored in ``result`` directory.
-
-Detailed documentation and examples on each algorithm are given below.
+运行autorun-bp.bat，在MNIST数据集上运行BP算法，分别取隐层节点数为50、100、250进行测试，设定迭代轮次为100，测试结果保存在``result``目录下。
 
 ## kNN
 
@@ -44,15 +40,15 @@ optional arguments:
   -j --jobs [JOBS]      maximum parallel jobs allowed
 ```
 
-Example：
+示例：
 
- Run kNN on MNIST dataset, set `K=5`, `parallel jobs = 4`, the result will be stored in `result/knn-mnist-5.txt`.
+对MNIST数据集运行kNN算法，K=5，并行数为4，将结果存储在result/knn-mnist-5.txt
 
 ```
 python kNN.py -k 5 -d mnist -r result/knn-mnist-5.txt -j 4
 ```
 
-Run kNN on CIFAR, set `K=1`, `parallel jobs = 4`, and don't store the result.
+对CIFAR数据集运行kNN算法，K=1，并行数为4，不存储结果
 
 ```
 python kNN.py -k 1 -d cifar -j 4
@@ -76,15 +72,15 @@ optional arguments:
   -j --jobs [JOBS]      maximum parallel jobs allowed
 ```
 
-Example：
+示例：
 
-Run Naive Bayes on MNIST, binarize (threshold) the input image, set `parallel jobs = 4`. The result will be stored in `result/mnist-bayes.txt`
+对MNIST数据集运行Naive Bayes算法，对输入的样本进行二值化处理，并行数4，结果存储在result/mnist-bayes.txt
 
 ```
 python NaiveBayes.py -d mnist -t -j 4 -r result/mnist-bayes.txt
 ```
 
-Run Naive Bayes on CIFAR, no binarization, with `parallel jobs = 4`, don't store the result.
+对CIFAR数据集运行Naive Bayes算法，不进行二值化处理，并行数4，不存储结果
 
 ```
 python NaiveBayes.py -d cifar -j 4
@@ -117,15 +113,15 @@ optional arguments:
   -n --normalize        whether to normalize cifar data
 ```
 
-Example：
+示例：
 
-Run SVM on MNIST, with 200 training images and 100 testing images. `max iteration = 50`,  `C = 20` and use `rbf` kernel with $\sigma$=10. The trained model will be stored in `result/mnist-svm.json`, and the test result will be stored in `result/mnist-svm.txt`. `parallel jobs = 4`.
+对MNIST数据集运行SVM算法，使用200个训练样本和100个测试样本，最大迭代次数=50，rbf核，C=20，$\sigma$=10，训练模型存入result/mnist-svm.json，测试结果存入result/mnist-svm.txt，并行数=4
 
 ```
 python SVM.py -d mnist -s 200 -t 100 -m 50 -k rbf -c 20 -x 10 -o result/mnist-svm.json -r result/mnist-svm.txt -j 4
 ```
 
-Run SVM on CIFAR, with 200 training images and 100 testing images. `max iteration = 50`,  `C = 1` and use `linear` kernel. No model or result will be stored. `parallel jobs = 4`.
+对CIFAR数据集运行SVM算法，，使用200个训练样本和100个测试样本，最大迭代次数=50，使用线性核，C=1，并行数=4训练模型和结果不保存。
 
 ```
 python SVM.py -d cifar -s 200 -t 100 -m 50 -k lin -c 1 -j 4
@@ -152,9 +148,9 @@ optional arguments:
                         test result filename
 ```
 
-Example：
+示例：
 
-Run BP on MNIST. Set the learning rate `eta = 1`, `hidden layer nodes = 100`, `max iteration = 100`, `target error rate = 0` (which means it will run the training routine until it reaches the max iteration 100). The training progress will be stored in ``result/bp-eta1-hidden100.csv``, and test result will be stored in ``result/bp-eta1-hidden100.txt``.
+对MNIST数据集运行BP算法，取学习率eta=1，隐层节点数=100，最大迭代轮数=100，目标测试错误率=0（一直迭代，直到达到设定的100轮）。将训练记录以csv格式保存在``result/bp-eta1-hidden100.csv``中，测试结果保存在``result/bp-eta1-hidden100.txt``中。
 
 ```
 python BPNetwork.py -e 1 --hidden 100 -i 100 --err 0 -t result/bp-eta1-hidden100.csv -r result/bp-eta1-hidden100.txt
