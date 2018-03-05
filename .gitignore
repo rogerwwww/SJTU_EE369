@@ -99,3 +99,13 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# dataset
+CIFAR-10/
+Data/
+
+# Output result
+result/
+
+# Pycharm
+.idea/
