@@ -255,25 +255,25 @@ if __name__ == '__main__':
     import sys
 
     parser = argparse.ArgumentParser(description='SVM algorithm on MNIST and CIFAR dataset.')
-    parser.add_argument('-d --data', dest='dataset', default='cifar', choices=['cifar', 'mnist'], nargs='?', type=str,
+    parser.add_argument('-d', '--data', dest='dataset', default='cifar', choices=['cifar', 'mnist'], nargs='?', type=str,
                         help='Indicate which data set to use (mnist or cifar)')
     parser.add_argument('-c', dest='C', nargs='?', default=2, type=float, help='C value, default=2')
-    parser.add_argument('-e --error', dest='error', nargs='?', default=0.001, type=float,
+    parser.add_argument('-e', '--error', dest='error', nargs='?', default=0.001, type=float,
                         help='error tolerance, default=0.01')
-    parser.add_argument('-m --max', dest='max', nargs='?', default=20, type=int,
+    parser.add_argument('-m', '--max', dest='max', nargs='?', default=20, type=int,
                         help='max iteration time, default=20')
-    parser.add_argument('-k --kernel', dest='kernel', nargs='?', default='rbf', type=str,
+    parser.add_argument('-k', '--kernel', dest='kernel', nargs='?', default='rbf', type=str,
                         help='kernel type, default=rbf')
-    parser.add_argument('-x --sigma', dest='sigma', nargs='?', default=10, type=float,
+    parser.add_argument('-x', '--sigma', dest='sigma', nargs='?', default=10, type=float,
                         help='kernel sigma value, default=10')
-    parser.add_argument('-s --sample', dest='sample', nargs='?', default=100, type=int,
+    parser.add_argument('-s', '--sample', dest='sample', nargs='?', default=100, type=int,
                         help='sample set numbers, default=100')
-    parser.add_argument('-t --test', dest='test', nargs='?', default=100, type=int,
+    parser.add_argument('-t', '--test', dest='test', nargs='?', default=100, type=int,
                         help='test set numbers, default=100')
-    parser.add_argument('-o --output', dest='output', nargs='?', default='', type=str, help='smo result filename')
-    parser.add_argument('-r --result', dest='result', nargs='?', default='', type=str, help='test result filename')
-    parser.add_argument('-j --jobs', dest='jobs', nargs='?', default=1, type=int, help='maximum parallel jobs allowed')
-    parser.add_argument('-n --normalize', dest='normal',  action='store_const', const=True,
+    parser.add_argument('-o', '--output', dest='output', nargs='?', default='', type=str, help='smo result filename')
+    parser.add_argument('-r', '--result', dest='result', nargs='?', default='', type=str, help='test result filename')
+    parser.add_argument('-j', '--jobs', dest='jobs', nargs='?', default=1, type=int, help='maximum parallel jobs allowed')
+    parser.add_argument('-n', '--normalize', dest='normal',  action='store_const', const=True,
                         help='whether to normalize cifar data')
 
     args = parser.parse_args()

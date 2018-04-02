@@ -42,10 +42,10 @@ if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='kNN method on MNIST and CIFAR data set.')
     parser.add_argument('-k', dest='k', nargs='?', default=3, type=int, help='k value of kNN, default=3')
-    parser.add_argument('-d --data', dest='dataset', default='cifar', choices=['cifar', 'mnist'], nargs='?', type=str,
+    parser.add_argument('-d', '--data', dest='dataset', default='cifar', choices=['cifar', 'mnist'], nargs='?', type=str,
                         help='Indicate which data set to use (mnist or cifar), default=cifar')
-    parser.add_argument('-r --result', dest='result', nargs='?', default='', type=str, help='test result filename')
-    parser.add_argument('-j --jobs', dest='jobs', nargs='?', default=1, type=int, help='maximum parallel jobs allowed')
+    parser.add_argument('-r', '--result', dest='result', nargs='?', default='', type=str, help='test result filename')
+    parser.add_argument('-j', '--jobs', dest='jobs', nargs='?', default=1, type=int, help='maximum parallel jobs allowed')
 
     args = parser.parse_args()
 
@@ -79,6 +79,7 @@ if __name__ == '__main__':
         '''
     except KeyboardInterrupt:
         # print result when program is terminated by user (ctrl-C).
+        '''
         error = np.count_nonzero(result[:i] - testingLabel[:i])
 
         print('\nClassification terminated by user.')
@@ -86,6 +87,8 @@ if __name__ == '__main__':
         print('Testing samples = %d' % i)
         print('Errors = %d' % error)
         print('Error rate = %2.4f%%' % (float(error) / i * 100))
+        '''
+        os._exit(1)
 
     # print result when calculation complete
     error = np.count_nonzero(result - testingLabel)

@@ -157,12 +157,12 @@ if __name__ == '__main__':
     from multiprocessing import Pool
 
     parser = argparse.ArgumentParser(description='Naive Bayse on MNIST and CIFAR data set.')
-    parser.add_argument('-t --threshold', dest='threshold', action='store_const', const=True,
+    parser.add_argument('-t', '--threshold', dest='threshold', action='store_const', const=True,
                         help='whether to threshold image')
-    parser.add_argument('-d --data', dest='dataset', default='cifar', choices=['cifar', 'mnist'], nargs='?', type=str,
+    parser.add_argument('-d', '--data', dest='dataset', default='cifar', choices=['cifar', 'mnist'], nargs='?', type=str,
                         help='Indicate which data set to use (mnist or cifar), default=cifar')
-    parser.add_argument('-r --result', dest='result', nargs='?', default='', type=str, help='test result filename')
-    parser.add_argument('-j --jobs', dest='jobs', nargs='?', default=1, type=int, help='maximum parallel jobs allowed')
+    parser.add_argument('-r', '--result', dest='result', nargs='?', default='', type=str, help='test result filename')
+    parser.add_argument('-j', '--jobs', dest='jobs', nargs='?', default=1, type=int, help='maximum parallel jobs allowed')
 
     args = parser.parse_args()
 

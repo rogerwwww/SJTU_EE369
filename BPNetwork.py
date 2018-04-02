@@ -60,16 +60,16 @@ if __name__ == '__main__':
     from multiprocessing import Pool
 
     parser = argparse.ArgumentParser(description='Back propagation neural networks algorithm')
-    parser.add_argument('-e --eta', dest='eta', nargs='?', default=0.5, type=float, help='eta (learning rate) value')
+    parser.add_argument('-e', '--eta', dest='eta', nargs='?', default=0.5, type=float, help='eta (learning rate) value')
     parser.add_argument('--hidden', dest='hidden', nargs='?', default=250, type=int,
                         help='size of hidden layer')
-    parser.add_argument('-i --iter', dest='iter', nargs='?', default=100, type=int,
+    parser.add_argument('-i', '--iter', dest='iter', nargs='?', default=100, type=int,
                         help='maximum iteration before stop training')
-    parser.add_argument('--err --error', dest='error', nargs='?', default=10, type=int,
+    parser.add_argument('--err', '--error', dest='error', nargs='?', default=10, type=int,
                         help='desired training error rate')
-    parser.add_argument('-t --train', dest='train', nargs='?', default='', type=str, help='train result filename')
-    parser.add_argument('-r --result', dest='result', nargs='?', default='', type=str, help='test result filename')
-    parser.add_argument('-j --jobs', dest='jobs', nargs='?', default=1, type=int, help='maximum parallel jobs allowed')
+    parser.add_argument('-t', '--train', dest='train', nargs='?', default='', type=str, help='train result filename')
+    parser.add_argument('-r', '--result', dest='result', nargs='?', default='', type=str, help='test result filename')
+    parser.add_argument('-j', '--jobs', dest='jobs', nargs='?', default=1, type=int, help='maximum parallel jobs allowed')
     args = parser.parse_args()
 
     timer = UniversalTimer()
